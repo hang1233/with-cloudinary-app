@@ -4,8 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useRef } from "react";
-import Bridge from "../components/Icons/Bridge";
-import Logo from "../components/Icons/Logo";
+import Avatar from "../components/Icons/Avatar";
 import Modal from "../components/Modal";
 import cloudinary from "../utils/cloudinary";
 import getBase64ImageUrl from "../utils/generateBlurPlaceholder";
@@ -30,7 +29,7 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
   return (
     <>
       <Head>
-        <title>Next.js Conf 2022 Photos</title>
+        <title>郭子骁时光</title>
         <meta
           property="og:image"
           content="https://nextjsconf-pics.vercel.app/og-image.png"
@@ -50,29 +49,19 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
           />
         )}
         <div className="columns-1 gap-4 sm:columns-2 xl:columns-3 2xl:columns-4">
-          <div className="after:content relative mb-5 flex h-[629px] flex-col items-center justify-end gap-4 overflow-hidden rounded-lg bg-white/10 px-6 pb-16 pt-64 text-center text-white shadow-highlight after:pointer-events-none after:absolute after:inset-0 after:rounded-lg after:shadow-highlight lg:pt-0">
-            <div className="absolute inset-0 flex items-center justify-center opacity-20">
-              <span className="flex max-h-full max-w-full items-center justify-center">
-                <Bridge />
-              </span>
-              <span className="absolute left-0 right-0 bottom-0 h-[400px] bg-gradient-to-b from-black/0 via-black to-black"></span>
+          <div className="after:content relative mb-5 flex h-[629px] flex-col items-center justify-center gap-6 overflow-hidden rounded-lg bg-gradient-to-b from-amber-900/30 to-black/70 px-6 pb-16 text-center text-white shadow-highlight after:pointer-events-none after:absolute after:inset-0 after:rounded-lg after:shadow-highlight">
+            <div className="absolute inset-0 bg-black/30 backdrop-blur-sm"></div>
+            
+            <div className="z-10 flex flex-col items-center justify-center space-y-6">
+              <Avatar />
+              <div className="space-y-4">
+                <h2 className="text-3xl font-bold text-white">郭子骁时光</h2>
+                <div className="h-0.5 w-16 bg-amber-500/70 mx-auto"></div>
+                <p className="max-w-[40ch] text-white/80 sm:max-w-[32ch] text-lg">
+                  定格美好瞬间，记录成长点滴，这里是我的时光宝盒。
+                </p>
+              </div>
             </div>
-            <Logo />
-            <h1 className="mt-8 mb-4 text-base font-bold uppercase tracking-widest">
-              2022 Event Photos
-            </h1>
-            <p className="max-w-[40ch] text-white/75 sm:max-w-[32ch]">
-              Our incredible Next.js community got together in San Francisco for
-              our first ever in-person conference!
-            </p>
-            <a
-              className="pointer z-10 mt-6 rounded-lg border border-white bg-white px-3 py-2 text-sm font-semibold text-black transition hover:bg-white/10 hover:text-white md:mt-4"
-              href="https://vercel.com/new/clone?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-cloudinary&project-name=nextjs-image-gallery&repository-name=with-cloudinary&env=NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,CLOUDINARY_API_KEY,CLOUDINARY_API_SECRET,CLOUDINARY_FOLDER&envDescription=API%20Keys%20from%20Cloudinary%20needed%20to%20run%20this%20application"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Clone and Deploy
-            </a>
           </div>
           {images.map(({ id, public_id, format, blurDataUrl }) => (
             <Link
@@ -84,8 +73,8 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
               className="after:content group relative mb-5 block w-full cursor-zoom-in after:pointer-events-none after:absolute after:inset-0 after:rounded-lg after:shadow-highlight"
             >
               <Image
-                alt="Next.js Conf photo"
-                className="transform rounded-lg brightness-90 transition will-change-auto group-hover:brightness-110"
+                alt="郭子骁照片"
+                className="transform rounded-lg brightness-95 transition will-change-auto group-hover:brightness-110 shadow-md"
                 style={{ transform: "translate3d(0, 0, 0)" }}
                 placeholder="blur"
                 blurDataURL={blurDataUrl}
@@ -102,34 +91,7 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
         </div>
       </main>
       <footer className="p-6 text-center text-white/80 sm:p-12">
-        Thank you to{" "}
-        <a
-          href="https://edelsonphotography.com/"
-          target="_blank"
-          className="font-semibold hover:text-white"
-          rel="noreferrer"
-        >
-          Josh Edelson
-        </a>
-        ,{" "}
-        <a
-          href="https://www.newrevmedia.com/"
-          target="_blank"
-          className="font-semibold hover:text-white"
-          rel="noreferrer"
-        >
-          Jenny Morgan
-        </a>
-        , and{" "}
-        <a
-          href="https://www.garysextonphotography.com/"
-          target="_blank"
-          className="font-semibold hover:text-white"
-          rel="noreferrer"
-        >
-          Gary Sexton
-        </a>{" "}
-        for the pictures.
+        郭子骁时光 © {new Date().getFullYear()} 版权所有
       </footer>
     </>
   );
