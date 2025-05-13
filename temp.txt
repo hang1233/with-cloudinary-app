@@ -1,0 +1,12 @@
+# Cloudinary 配置
+# 您的 Cloudinary 云名称 (必填)
+NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=
+
+# 您的 Cloudinary API 密钥 (必填)
+CLOUDINARY_API_KEY=
+
+# 您的 Cloudinary API 密钥 (必填)
+CLOUDINARY_API_SECRET=
+
+# 存储图片的 Cloudinary 文件夹名称 (必填)
+CLOUDINARY_FOLDER=
