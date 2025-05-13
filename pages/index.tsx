@@ -119,7 +119,11 @@ export async function getStaticProps() {
     i++;
   }
 
-  const blurImagePromises = results.resources.map((image: ImageProps) => {
+  // 随机打乱图片顺序
+  reducedResults = reducedResults.sort(() => Math.random() - 0.5);
+
+  // 在随机排序后生成模糊图像URL
+  const blurImagePromises = reducedResults.map((image: ImageProps) => {
     return getBase64ImageUrl(image);
   });
   const imagesWithBlurDataUrls = await Promise.all(blurImagePromises);
@@ -132,5 +136,6 @@ export async function getStaticProps() {
     props: {
       images: reducedResults,
     },
+    revalidate: 60, // 每60秒重新生成页面
   };
 }
