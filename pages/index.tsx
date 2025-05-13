@@ -58,7 +58,7 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
                 <h2 className="text-3xl font-bold text-white">郭子骁时光</h2>
                 <div className="h-0.5 w-16 bg-amber-500/70 mx-auto"></div>
                 <p className="max-w-[40ch] text-white/80 sm:max-w-[32ch] text-lg">
-                  定格美好瞬间，记录成长点滴，这里是我的时光宝盒。
+                  
                 </p>
               </div>
             </div>
